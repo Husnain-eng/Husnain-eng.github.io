@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Muhammad Husnain — Mechatronics and Control Engineering student working across mobile robotics, perception, navigation, real-time control, embedded systems, and mechanical design.">
+<meta name="theme-color" content="#111111">
+<title>Muhammad Husnain — Robotics Research</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --black:#111111;
+  --ink:#202020;
+  --text:#2a2a2a;
+  --muted:#646464;
+  --faint:#8b8b8b;
+  --line:#d8d8d8;
+  --line-strong:#b8b8b8;
+  --paper:#ffffff;
+  --soft:#f6f6f4;
+  --max:1080px;
+  --serif:"Source Serif 4",Georgia,serif;
+  --sans:Inter,Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--text);font-family:var(--sans);font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+::selection{background:#111;color:#fff}
+:focus-visible{outline:2px solid #111;outline-offset:3px}
+.wrap{width:min(var(--max),calc(100% - 44px));margin:0 auto}
+.mono{font-family:var(--mono)}
+.label{font:500 11px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+.rule{height:1px;background:var(--line)}
+
+/* header */
+.site-header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line)}
+.header-inner{min-height:62px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{font:600 13px var(--mono);text-decoration:none;letter-spacing:.04em}
+.nav{display:flex;gap:22px;align-items:center}
+.nav a{font-size:12.5px;color:var(--muted);text-decoration:none}
+.nav a:hover{color:var(--black)}
+.header-links{display:flex;align-items:center;gap:14px}
+.header-links a{font:500 11px var(--mono);text-decoration:none;color:var(--muted)}
+.header-links a:hover{color:var(--black)}
+.nav-toggle{display:none;border:1px solid var(--line-strong);background:#fff;padding:7px 9px;font:500 11px var(--mono)}
+
+/* hero */
+.hero{padding:76px 0 56px}
+.hero-grid{display:grid;grid-template-columns:1fr 310px;gap:70px;align-items:end}
+.hero-kicker{font:500 11px var(--mono);letter-spacing:.11em;text-transform:uppercase;color:var(--muted)}
+.hero h1{font:600 clamp(46px,7vw,78px)/.94 var(--serif);letter-spacing:-.045em;margin:17px 0 0;color:var(--black)}
+.hero-title{font-size:18px;line-height:1.4;margin:24px 0 0;color:var(--black);max-width:720px}
+.hero-copy{max-width:690px;margin:14px 0 0;color:var(--muted);font-size:15.5px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.button{display:inline-flex;align-items:center;min-height:38px;padding:0 13px;border:1px solid var(--black);font-size:12px;text-decoration:none;font-weight:600}
+.button.fill{background:var(--black);color:#fff}
+.button:hover{background:#fff;color:var(--black)}
+.hero-side{border-top:1px solid var(--black);padding-top:12px}
+.hero-side dl{margin:0}
+.hero-side dt{font:500 10px var(--mono);text-transform:uppercase;letter-spacing:.1em;color:var(--faint);margin-top:15px}
+.hero-side dt:first-child{margin-top:0}
+.hero-side dd{margin:2px 0 0;font-size:13px;color:var(--black)}
+
+/* sections */
+section{padding:66px 0}
+.section-heading{display:grid;grid-template-columns:120px 1fr;gap:34px;margin-bottom:34px}
+.section-heading .num{font:500 11px var(--mono);color:var(--faint);padding-top:7px}
+.section-heading h2{font:600 clamp(27px,4vw,41px)/1.05 var(--serif);letter-spacing:-.025em;margin:0;color:var(--black)}
+.section-heading p{max-width:720px;color:var(--muted);margin:13px 0 0;font-size:14px}
+
+/* research */
+.research-intro{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-bottom:38px}
+.research-intro p{margin:0;color:var(--text)}
+.research-intro strong{color:var(--black)}
+.direction{border-top:1px solid var(--black);padding:17px 0 0}
+.direction-head{display:flex;justify-content:space-between;gap:24px;align-items:baseline}
+.direction h3{font:600 24px/1.15 var(--serif);margin:0;color:var(--black)}
+.direction .code{font:500 10px var(--mono);color:var(--faint)}
+.direction p{margin:10px 0 0;color:var(--muted);font-size:14px;max-width:710px}
+.direction-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:24px}
+.direction-col h4{font:500 10px var(--mono);text-transform:uppercase;letter-spacing:.1em;color:var(--faint);margin:0 0 8px}
+.direction-col ul{margin:0;padding-left:18px}
+.direction-col li{margin:4px 0;color:var(--text);font-size:13px}
+.keyword-line{margin-top:17px;font:500 11px/1.7 var(--mono);color:var(--black)}
+
+/* evidence */
+.evidence{padding-top:0}
+.evidence-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--black);border-bottom:1px solid var(--black)}
+.evidence-item{padding:15px 14px 16px;border-right:1px solid var(--line)}
+.evidence-item:last-child{border-right:0}
+.evidence-item .n{font:600 19px var(--mono);color:var(--black)}
+.evidence-item .t{margin-top:2px;font-size:11.5px;color:var(--muted)}
+
+/* experience */
+.timeline{border-top:1px solid var(--black)}
+.entry{display:grid;grid-template-columns:145px minmax(0,1fr);gap:34px;padding:23px 0;border-bottom:1px solid var(--line)}
+.entry-date{font:500 10.5px var(--mono);line-height:1.55;color:var(--faint);text-transform:uppercase}
+.entry-main h3{font:600 20px/1.2 var(--serif);margin:0;color:var(--black)}
+.entry-meta{margin-top:4px;color:var(--muted);font-size:12.5px}
+.entry-main ul{margin:12px 0 0;padding-left:18px}
+.entry-main li{margin:4px 0;font-size:13.5px}
+.entry-main .stackline{margin-top:10px;font:500 10.5px/1.7 var(--mono);color:var(--muted)}
+
+/* projects */
+.project-list{border-top:1px solid var(--black)}
+.project{border-bottom:1px solid var(--line)}
+.project-summary{display:grid;grid-template-columns:60px minmax(0,1fr) 22px;gap:18px;padding:20px 0;cursor:pointer;align-items:start}
+.project-number{font:500 10px var(--mono);color:var(--faint);padding-top:3px}
+.project-summary h3{font:600 22px/1.15 var(--serif);margin:0;color:var(--black)}
+.project-summary .subtitle{margin-top:6px;color:var(--muted);font-size:13.5px;max-width:800px}
+.project-tags{margin-top:10px;font:500 10px/1.7 var(--mono);color:var(--black)}
+.project-tags span+span:before{content:" · ";color:var(--line-strong)}
+.toggle{font:400 20px/1 var(--sans);color:var(--faint);padding-top:0;text-align:right}
+.project.open .toggle{transform:rotate(45deg);color:var(--black)}
+.project-body{display:none;padding:0 0 28px 78px}
+.project.open .project-body{display:block}
+.case-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(220px,.65fr);gap:45px}
+.case-section{margin-top:17px}
+.case-section:first-child{margin-top:0}
+.case-section h4{font:500 10px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin:0 0 8px}
+.case-section p{margin:0;color:var(--text);font-size:13.5px}
+.case-section ul{margin:0;padding-left:18px}
+.case-section li{margin:5px 0;font-size:13.5px}
+.project-side{border-top:1px solid var(--line);padding-top:12px}
+.side-block{margin-bottom:19px}
+.side-block:last-child{margin-bottom:0}
+.side-block .k{font:500 9.5px var(--mono);letter-spacing:.09em;text-transform:uppercase;color:var(--faint)}
+.side-block .v{margin-top:4px;font-size:12px;color:var(--black)}
+.result-box{border-top:1px solid var(--black);border-bottom:1px solid var(--black);margin-top:21px;padding:11px 0;font-size:13px;color:var(--black)}
+
+/* skills */
+.skills-grid{border-top:1px solid var(--black)}
+.skill-group{display:grid;grid-template-columns:210px minmax(0,1fr);gap:38px;padding:21px 0;border-bottom:1px solid var(--line)}
+.skill-group h3{font:600 19px/1.15 var(--serif);margin:0;color:var(--black)}
+.skill-group .summary{margin-top:7px;font-size:12px;color:var(--muted)}
+.skill-list{margin:0;padding:0;list-style:none}
+.skill-item{display:grid;grid-template-columns:155px 1fr;gap:18px;padding:8px 0}
+.skill-item+.skill-item{border-top:1px solid #ededed}
+.skill-name{font:500 11px var(--mono);color:var(--black)}
+.skill-detail{font-size:12.5px;color:var(--text)}
+.skill-evidence{margin-top:3px;color:var(--muted);font-size:11.5px}
+
+/* education/about */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:54px}
+.text-block p{margin:0 0 14px;color:var(--text);font-size:14px}
+.text-block p:last-child{margin-bottom:0}
+.meta-table{border-top:1px solid var(--black)}
+.meta-row{display:grid;grid-template-columns:120px 1fr;gap:18px;padding:10px 0;border-bottom:1px solid var(--line)}
+.meta-row .k{font:500 10px var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--faint)}
+.meta-row .v{font-size:12.5px;color:var(--black)}
+
+/* contact */
+.contact{padding-bottom:90px}
+.contact-box{border-top:1px solid var(--black);border-bottom:1px solid var(--black);padding:25px 0;display:grid;grid-template-columns:1fr auto;gap:30px;align-items:end}
+.contact-box h2{font:600 29px/1.08 var(--serif);margin:0;color:var(--black)}
+.contact-box p{margin:9px 0 0;color:var(--muted);font-size:13.5px;max-width:680px}
+.contact-links{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+
+/* footer */
+footer{border-top:1px solid var(--black);padding:20px 0 30px}
+.footer-inner{display:flex;justify-content:space-between;gap:20px;align-items:center;font:500 10px var(--mono);color:var(--faint)}
+.footer-inner a{text-decoration:none;color:var(--muted)}
+.footer-inner a:hover{color:var(--black)}
+
+/* small print controls */
+.print-link{border:0;background:none;cursor:pointer;font:500 11px var(--mono);color:var(--muted);padding:0}
+.print-link:hover{color:var(--black)}
+
+@media(max-width:850px){
+  .nav,.header-links{display:none}
+  .nav-toggle{display:inline-block}
+  .site-header.open .nav{display:flex;position:absolute;left:0;right:0;top:62px;background:#fff;border-bottom:1px solid var(--line);padding:8px 22px 16px;flex-direction:column;align-items:flex-start;gap:0}
+  .site-header.open .nav a{padding:8px 0;width:100%;border-bottom:1px solid var(--line)}
+  .hero-grid{grid-template-columns:1fr;gap:35px}
+  .hero-side{max-width:420px}
+  .research-intro,.direction-grid,.two-col{grid-template-columns:1fr;gap:26px}
+  .evidence-grid{grid-template-columns:1fr 1fr}
+  .evidence-item:nth-child(2){border-right:0}
+  .evidence-item:nth-child(-n+2){border-bottom:1px solid var(--line)}
+  .section-heading{grid-template-columns:70px 1fr;gap:20px}
+  .entry{grid-template-columns:95px 1fr;gap:18px}
+  .case-grid{grid-template-columns:1fr}
+  .project-body{padding-left:78px}
+  .skill-group{grid-template-columns:1fr;gap:15px}
+  .contact-box{grid-template-columns:1fr}
+  .contact-links{justify-content:flex-start}
+}
+@media(max-width:620px){
+  .wrap{width:min(var(--max),calc(100% - 30px))}
+  .hero{padding:55px 0 45px}
+  section{padding:52px 0}
+  .hero h1{font-size:49px}
+  .evidence-grid{grid-template-columns:1fr}
+  .evidence-item,.evidence-item:nth-child(2){border-right:0;border-bottom:1px solid var(--line)}
+  .evidence-item:last-child{border-bottom:0}
+  .section-heading{grid-template-columns:1fr;gap:9px}
+  .entry{grid-template-columns:1fr;gap:4px}
+  .project-summary{grid-template-columns:34px minmax(0,1fr) 18px;gap:11px}
+  .project-body{padding-left:45px}
+  .skill-item{grid-template-columns:1fr;gap:3px}
+  .skill-item+.skill-item{padding-top:11px}
+  .meta-row{grid-template-columns:90px 1fr}
+  .footer-inner{flex-direction:column;align-items:flex-start}
+}
+@media print{
+  .site-header,.hero-actions,.nav-toggle,.contact-links,.print-link{display:none!important}
+  body{font-size:11px}
+  section,.hero{padding:25px 0}
+  .wrap{width:100%}
+  .project-body{display:block!important}
+  a{text-decoration:none}
+}
+</style>
+</head>
+<body>
+<header class="site-header" id="siteHeader">
+  <div class="wrap header-inner">
+    <a class="brand" href="#top">MUHAMMAD HUSNAIN</a>
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="#research">Research</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#education">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="header-links">
+      <a href="https://github.com/Husnain-eng" target="_blank" rel="noopener">GitHub ↗</a>
+      <a href="https://linkedin.com/in/muhammad-husnain" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <button class="print-link" type="button" onclick="window.print()">Print</button>
+    </div>
+    <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" onclick="toggleNav()">MENU</button>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="hero-kicker">Mechatronics &amp; Control Engineering · UET Lahore</div>
+      <h1>Muhammad<br>Husnain</h1>
+      <div class="hero-title">Robotics systems, perception, navigation, real-time control, embedded hardware, and mechatronic design.</div>
+      <p class="hero-copy">I am a Mechatronics and Control Engineering student building complete robotic systems rather than isolated components. My work spans ROS2-based mobile robotics, LiDAR and RGB-D sensing, closed-loop inverse kinematics, embedded motor control, custom PCBs, and mechanically validated hardware. I am particularly interested in research problems where perception, estimation, planning, control, and physical design have to work as one system.</p>
+      <div class="hero-actions">
+        <a class="button fill" href="#projects">Selected research projects</a>
+        <a class="button" href="mailto:enghusnainx77@gmail.com">Email</a>
+        <a class="button" href="https://github.com/Husnain-eng" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+    </div>
+    <aside class="hero-side" aria-label="Profile facts">
+      <dl>
+        <dt>Research direction</dt>
+        <dd>Mobile robotics · perception · navigation</dd>
+        <dt>Second direction</dt>
+        <dd>Embodied control · kinematics · mechatronics</dd>
+        <dt>Education</dt>
+        <dd>B.Sc. Mechatronics &amp; Control Engineering, UET Lahore · 2023–2027</dd>
+        <dt>Based in</dt>
+        <dd>Lahore, Pakistan</dd>
+        <dt>Seeking</dt>
+        <dd>Research internships · graduate research · robotics collaboration</dd>
+      </dl>
+    </aside>
+  </div>
+</section>
+
+<section class="evidence">
+  <div class="wrap evidence-grid">
+    <div class="evidence-item"><div class="n">02</div><div class="t">research directions connecting perception and control</div></div>
+    <div class="evidence-item"><div class="n">06</div><div class="t">flagship engineering projects presented as case studies</div></div>
+    <div class="evidence-item"><div class="n">02</div><div class="t">university lab environments: robotics and embedded systems</div></div>
+    <div class="evidence-item"><div class="n">01</div><div class="t">continuous goal: move algorithms into physical systems</div></div>
+  </div>
+</section>
+
+<section id="research">
+  <div class="wrap">
+    <div class="section-heading">
+      <div class="num">01 / RESEARCH</div>
+      <div><h2>Two research directions.<br>One systems mindset.</h2><p>The portfolio is deliberately organized around the two areas where my existing work forms the clearest technical narrative. The first begins with sensing and autonomy; the second begins with models, control, and physical actuation.</p></div>
+    </div>
+
+    <div class="research-intro">
+      <p><strong>Research principle.</strong> A robot is only as good as the weakest interface between its layers. Sensor placement affects perception. Estimation affects planning. Planning affects control. Controller timing affects physical behavior. Mechanical constraints feed back into every one of those decisions.</p>
+      <p>My goal is to work on the parts of robotics where these interfaces become research problems: robustness in dynamic environments, efficient perception on constrained compute, real-time feedback, kinematic control, and hardware-software co-design.</p>
+    </div>
+
+    <article class="direction">
+      <div class="direction-head"><h3>A / Mobile Robotics, Perception &amp; Navigation</h3><div class="code">PRIMARY RESEARCH STORY</div></div>
+      <p>I work on the sensing-to-action chain of an autonomous mobile robot: integrating LiDAR and RGB-D sensing, building ROS2 navigation systems, using SLAM and sensor fusion for state awareness, and connecting perception to path planning and dynamic obstacle avoidance on embedded compute.</p>
+      <div class="direction-grid">
+        <div class="direction-col"><h4>Technical problems I work with</h4><ul><li>LiDAR and RGB-D sensor integration and field-of-view constraints.</li><li>SLAM, state awareness, and multi-sensor information flow.</li><li>Dynamic obstacle avoidance and navigation in changing indoor scenes.</li><li>ROS2/Nav2 system integration and deployment on embedded compute such as Jetson.</li></ul></div>
+        <div class="direction-col"><h4>Evidence in this portfolio</h4><ul><li>AMR sensor integration and indoor navigation platform.</li><li>Autonomous UV-C robot with navigation, coverage, and safety constraints.</li><li>TinyML perception deployed directly on ESP32-CAM.</li></ul></div>
+      </div>
+      <div class="keyword-line">ROS2 · Nav2 · SLAM · LiDAR · RGB-D · sensor fusion · dynamic obstacle avoidance · Jetson · embedded perception</div>
+    </article>
+
+    <article class="direction" style="margin-top:38px">
+      <div class="direction-head"><h3>B / Embodied Robotics, Control &amp; Mechatronics</h3><div class="code">SECOND RESEARCH STORY</div></div>
+      <p>I work on the layer where a mathematical model becomes physical motion: inverse kinematics, trajectory tracking, encoder feedback, PID control, deterministic embedded execution, custom electronics, motor actuation, and mechanical validation.</p>
+      <div class="direction-grid">
+        <div class="direction-col"><h4>Technical problems I work with</h4><ul><li>Closed-form inverse kinematics and continuous end-effector trajectory tracking.</li><li>Real-time feedback using encoders, RPM monitoring, current sensing, and vision.</li><li>PID-based motor and attitude control with interrupt-driven embedded firmware.</li><li>Custom PCB and mechanical design where the hardware is part of the controller.</li></ul></div>
+        <div class="direction-col"><h4>Evidence in this portfolio</h4><ul><li>3-DOF manipulator controlled through closed-loop IK and encoder feedback.</li><li>Dual-axis stability controller with custom TIVA board and BLDC actuation.</li><li>Manufacturing-oriented reconstruction of the TM4C123GH6PM development board.</li></ul></div>
+      </div>
+      <div class="keyword-line">inverse kinematics · trajectory tracking · closed-loop control · PID · BLDC · embedded C/C++ · custom PCB · mechatronic systems</div>
+    </article>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="section-heading">
+      <div class="num">02 / EXPERIENCE</div>
+      <div><h2>Research and engineering<br>environment.</h2><p>My experience has been built through lab-based engineering work and projects in which the deliverable is a working system, design package, or physically validated result.</p></div>
+    </div>
+
+    <div class="timeline">
+      <article class="entry">
+        <div class="entry-date">University research / lab</div>
+        <div class="entry-main">
+          <h3>Human Centered Robotics Lab · NCRA, UET Lahore</h3>
+          <div class="entry-meta">Mobile robotics, sensor integration, autonomous systems · supervised by Dr. Ali Raza</div>
+          <ul><li>Worked on autonomous mobile-robot hardware and the integration of perception, navigation, and physical structure rather than treating the robot as software alone.</li><li>Designed sensor mounts, chassis interfaces, and mast assemblies while checking clearances, mass properties, center-of-gravity, and sensor field-of-view in the mechanical model.</li><li>Integrated LiDAR and RGB-D sensing into a ROS2-based platform and connected the physical sensor geometry to navigation behavior.</li></ul>
+          <div class="stackline">SYSTEMS: SolidWorks · ROS2 · LiDAR · RGB-D · SLAM · navigation · sensor integration</div>
+        </div>
+      </article>
+
+      <article class="entry">
+        <div class="entry-date">University lab</div>
+        <div class="entry-main">
+          <h3>Embedded Systems Lab · UET Lahore</h3>
+          <div class="entry-meta">PCB design and embedded hardware · supervised by Mr. Shujat Ali</div>
+          <ul><li>Reconstructed a Tiva TM4C123GH6PM development board from datasheets and reference designs, including MCU, regulated power, clocking, USB, headers, protection, and support circuitry.</li><li>Created schematic symbols and footprints, completed multilayer routing, defined power/ground planes, and performed DRC/ERC verification.</li><li>Prepared a manufacturing package with Gerber, drill, assembly, and bill-of-material files.</li></ul>
+          <div class="stackline">SYSTEMS: KiCad · IPC-2221 · IPC-7351 · DRC/ERC · multilayer PCB · manufacturing release</div>
+        </div>
+      </article>
+
+      <article class="entry">
+        <div class="entry-date">Leadership</div>
+        <div class="entry-main">
+          <h3>Mechatronics Club · UET Lahore</h3>
+          <div class="entry-meta">Deputy Director, HR</div>
+          <ul><li>Contributed to the organization and coordination of a technical student community, with responsibility for people-facing processes and team coordination.</li><li>Built communication, negotiation, and management experience alongside the engineering work developed through robotics and embedded projects.</li></ul>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="section-heading">
+      <div class="num">03 / PROJECTS</div>
+      <div><h2>Selected technical work,<br>in depth.</h2><p>Each project is written as a technical case study: problem, role, architecture, engineering decisions, validation, and the research signal it demonstrates.</p></div>
+    </div>
+
+    <div class="project-list" id="projectList">
+      <article class="project" data-open="true">
+        <div class="project-summary" tabindex="0" role="button" aria-expanded="true">
+          <div class="project-number">01</div>
+          <div><h3>AMR — ROS2 Navigation &amp; Sensor Integration</h3><div class="subtitle">An autonomous mobile robot platform connecting mechanical structure, LiDAR/RGB-D perception, ROS2 navigation, SLAM, sensor fusion, and dynamic obstacle handling.</div><div class="project-tags">ROS2 · Nav2 · SLAM · LiDAR · RGB-D · sensor fusion · SolidWorks</div></div>
+          <div class="toggle" aria-hidden="true">+</div>
+        </div>
+        <div class="project-body">
+          <div class="case-grid">
+            <div>
+              <div class="case-section"><h4>Problem</h4><p>The robot needed to navigate indoors while carrying its own sensing and compute stack. The challenge was not only choosing a navigation package, but placing sensors and mechanical structures so the perception system retained the field of view and geometry it needed.</p></div>
+              <div class="case-section"><h4>Role &amp; scope</h4><p>Mechanical design and sensor integration in the Human Centered Robotics Lab, NCRA, UET Lahore, supervised by Dr. Ali Raza.</p></div>
+              <div class="case-section"><h4>Technical approach</h4><ul><li>Designed chassis mounts, sensor brackets, and mast assemblies in SolidWorks, checking clearances, mass properties, center-of-gravity, and physical interfaces before fabrication.</li><li>Integrated LiDAR and RGB-D sensors while accounting for mounting geometry and usable sensing volume.</li><li>Supported the ROS2 navigation stack through SLAM, dynamic path planning, and multi-sensor integration, keeping the mechanical and software layers consistent.</li><li>Worked toward navigation behavior that could handle changing obstacles rather than assuming a static map.</li></ul></div>
+              <div class="case-section"><h4>Engineering lesson</h4><p>Sensor integration is a mechanical problem as much as a software problem. A theoretically capable navigation stack can still fail when the physical mounting introduces occlusion, vibration, poor frame placement, or misleading geometry.</p></div>
+              <div class="result-box"><strong>Result:</strong> working indoor mobile-robot navigation and dynamic-obstacle behavior, with the platform reused as the base for subsequent robotics work.</div>
+            </div>
+            <aside class="project-side"><div class="side-block"><div class="k">Research signal</div><div class="v">Full-stack mobile robotics integration: sensing → estimation → planning → physical motion.</div></div><div class="side-block"><div class="k">Hardware</div><div class="v">Mobile robot chassis · LiDAR · RGB-D depth camera · embedded compute</div></div><div class="side-block"><div class="k">Software</div><div class="v">ROS2 · SLAM · navigation · sensor integration</div></div><div class="side-block"><div class="k">Core fit</div><div class="v">Mobile robotics · perception · navigation · dynamic environments</div></div></aside>
+          </div>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="project-summary" tabindex="0" role="button" aria-expanded="false">
+          <div class="project-number">02</div>
+          <div><h3>Real-Time Closed-Loop IK Control — 3-DOF Manipulator</h3><div class="subtitle">A physical manipulator controlled through closed-form inverse kinematics, encoder feedback, and deterministic real-time trajectory execution.</div><div class="project-tags">NI myRIO · LabVIEW · inverse kinematics · encoder feedback · trajectory tracking</div></div>
+          <div class="toggle" aria-hidden="true">+</div>
+        </div>
+        <div class="project-body">
+          <div class="case-grid">
+            <div>
+              <div class="case-section"><h4>Problem</h4><p>A 3-DOF manipulator needed continuous end-effector motion rather than point-to-point movement. The controller had to transform Cartesian trajectories into joint commands and maintain feedback during execution.</p></div>
+              <div class="case-section"><h4>Role &amp; scope</h4><p>Full real-time control system design and implementation.</p></div>
+              <div class="case-section"><h4>Technical approach</h4><ul><li>Formulated closed-form geometric inverse kinematics to map desired end-effector positions to joint angles.</li><li>Combined IK with encoder-feedback closed-loop control to correct trajectory error during motion.</li><li>Implemented real-time control logic in LabVIEW on NI myRIO with deterministic data flow.</li><li>Generated and tracked circular and triangular end-effector paths rather than testing only static poses.</li><li>Added an IR-based safety interlock that halts motion when an obstacle is detected.</li></ul></div>
+              <div class="case-section"><h4>Engineering lesson</h4><p>Inverse kinematics is only the geometric layer. The physical result depends on feedback, execution timing, motor response, and how continuously the controller corrects the difference between the desired and measured state.</p></div>
+              <div class="result-box"><strong>Result:</strong> continuous circular and triangular spatial trajectory tracking with a working obstacle-triggered safety interlock.</div>
+            </div>
+            <aside class="project-side"><div class="side-block"><div class="k">Research signal</div><div class="v">Embodied control: mathematical model directly coupled to real-time physical actuation.</div></div><div class="side-block"><div class="k">Control loop</div><div class="v">Cartesian target → IK → joint command → encoder feedback → correction</div></div><div class="side-block"><div class="k">Core fit</div><div class="v">Control · kinematics · trajectory tracking · real-time systems</div></div></aside>
+          </div>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="project-summary" tabindex="0" role="button" aria-expanded="false">
+          <div class="project-number">03</div>
+          <div><h3>Embedded C Stability Control System</h3><div class="subtitle">A self-designed embedded controller using a TIVA microcontroller, bare-metal firmware, PID control, PWM actuation, motor monitoring, and vision-based orientation feedback.</div><div class="project-tags">TIVA TM4C123GH6PM · Embedded C/C++ · PID · BLDC · OpenCV · PWM</div></div>
+          <div class="toggle" aria-hidden="true">+</div>
+        </div>
+        <div class="project-body">
+          <div class="case-grid">
+            <div>
+              <div class="case-section"><h4>Problem</h4><p>A dual-axis aerial platform needed real-time stabilization while using a non-conventional sensing approach rather than relying on a standard IMU.</p></div>
+              <div class="case-section"><h4>Role &amp; scope</h4><p>End-to-end hardware and firmware work: custom controller board, bare-metal software, motor actuation, sensing, and feedback control.</p></div>
+              <div class="case-section"><h4>Technical approach</h4><ul><li>Designed a self-built TM4C123GH6PM-based PCB for the control system.</li><li>Wrote bare-metal C/C++ firmware with prioritized interrupt handling and timer-driven PWM generation.</li><li>Monitored RPM and current to connect commanded actuation with the actual motor state.</li><li>Implemented PID attitude control to drive two BLDC motors and counter disturbance-induced oscillation.</li><li>Closed the orientation loop with OpenCV-based visual estimation instead of a conventional IMU.</li></ul></div>
+              <div class="case-section"><h4>Engineering lesson</h4><p>Control performance cannot be separated from embedded timing and measurement quality. Interrupt structure, PWM timing, sensing latency, and motor response all become part of the practical controller.</p></div>
+              <div class="result-box"><strong>Result:</strong> the control response was validated on the physical rig, demonstrating end-to-end hardware-to-control integration.</div>
+            </div>
+            <aside class="project-side"><div class="side-block"><div class="k">Research signal</div><div class="v">Low-level real-time control with custom electronics and a non-standard sensing pipeline.</div></div><div class="side-block"><div class="k">Embedded concepts</div><div class="v">Interrupts · timers · PWM · current sensing · RPM monitoring · firmware</div></div><div class="side-block"><div class="k">Core fit</div><div class="v">Real-time control · embedded systems · mechatronic actuation</div></div></aside>
+          </div>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="project-summary" tabindex="0" role="button" aria-expanded="false">
+          <div class="project-number">04</div>
+          <div><h3>Autonomous UV-C Disinfection Robot</h3><div class="subtitle">A mobile robot combining autonomous coverage, mechanical deployment, static structural FEA, and optical analysis for operating-theatre disinfection.</div><div class="project-tags">SolidWorks · static FEA · MATLAB · DIALux Evo · COMSOL · autonomous coverage</div></div>
+          <div class="toggle" aria-hidden="true">+</div>
+        </div>
+        <div class="project-body">
+          <div class="case-grid">
+            <div>
+              <div class="case-section"><h4>Problem</h4><p>Vertically mounted UV-C sources can leave shadowed regions. The system therefore needed to solve a coverage problem together with the mechanical and safety constraints of moving a multi-lamp array through an operating environment.</p></div>
+              <div class="case-section"><h4>Role &amp; scope</h4><p>Full mechanical design and FEA validation with Dr. Ali Raza and Dr. Maria Akram; manuscript in preparation.</p></div>
+              <div class="case-section"><h4>Technical approach</h4><ul><li>Designed a differential-drive chassis with a central mast and umbrella-style multi-angle UV-C mechanism supporting an 8-lamp array.</li><li>Evaluated the structure through static FEA across open and closed configurations, including stress, deflection, factor of safety, and mesh convergence.</li><li>Used mechanical analysis to inform material and section selection instead of relying only on visual CAD judgment.</li><li>Cross-validated optical behavior through MATLAB, DIALux Evo, and COMSOL to produce a three-dimensional irradiance/dose representation.</li><li>Connected the robot's navigation role to systematic coverage of the target space.</li></ul></div>
+              <div class="case-section"><h4>Engineering lesson</h4><p>Robotic systems in physical environments are multi-domain problems. Mechanical geometry, structural integrity, coverage planning, perception, and safety cannot be optimized independently.</p></div>
+              <div class="result-box"><strong>Result:</strong> tip deflection was held below 5 mm at full lamp load; the physical build was fabricated and checked against the CAD model.</div>
+            </div>
+            <aside class="project-side"><div class="side-block"><div class="k">Research signal</div><div class="v">Embodied autonomy under mechanical, safety, and coverage constraints.</div></div><div class="side-block"><div class="k">Validation</div><div class="v">FEA · mesh convergence · optical simulation · physical fabrication</div></div><div class="side-block"><div class="k">Core fit</div><div class="v">Mechatronic design · robotics · simulation · physical validation</div></div></aside>
+          </div>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="project-summary" tabindex="0" role="button" aria-expanded="false">
+          <div class="project-number">05</div>
+          <div><h3>Tiva TM4C123GH6PM Development Board</h3><div class="subtitle">A manufacturing-oriented reconstruction of a Tiva development board covering schematic design, footprints, multilayer layout, rule verification, 3D fit, and fabrication release.</div><div class="project-tags">KiCad · IPC-2221 · IPC-7351 · DRC/ERC · Gerbers · BOM</div></div>
+          <div class="toggle" aria-hidden="true">+</div>
+        </div>
+        <div class="project-body">
+          <div class="case-grid">
+            <div>
+              <div class="case-section"><h4>Problem</h4><p>The goal was to reproduce a usable embedded development platform from technical references and carry it far enough toward manufacturing that the design could be reviewed as a real board rather than a classroom schematic.</p></div>
+              <div class="case-section"><h4>Technical approach</h4><ul><li>Reconstructed the MCU, regulated power supply, oscillator/clock network, USB interface, headers, protection, and support passives from datasheets and reference designs.</li><li>Created custom symbols and IPC-7351 footprints where required.</li><li>Applied IPC-2221 guidance to trace width, spacing, and current/voltage considerations.</li><li>Completed multilayer routing with explicit ground and power planes.</li><li>Ran full DRC/ERC checks and used the 3D board model to inspect mechanical fit.</li></ul></div>
+              <div class="case-section"><h4>Release</h4><p>Prepared Gerber and drill files, assembly drawings, and a bill of materials for fabrication review.</p></div>
+              <div class="result-box"><strong>Result:</strong> complete manufacturing-oriented PCB release package rather than a design that stopped at schematic capture.</div>
+            </div>
+            <aside class="project-side"><div class="side-block"><div class="k">Research signal</div><div class="v">Ability to move below the software layer and design the physical electronics that a robotic controller depends on.</div></div><div class="side-block"><div class="k">Standards</div><div class="v">IPC-2221 · IPC-7351</div></div><div class="side-block"><div class="k">Core fit</div><div class="v">Embedded hardware · PCB design · hardware/software co-design</div></div></aside>
+          </div>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="project-summary" tabindex="0" role="button" aria-expanded="false">
+          <div class="project-number">06</div>
+          <div><h3>TinyML — Visual Wake Words</h3><div class="subtitle">A resource-constrained embedded perception pipeline from image classification through INT8 quantization and on-device ESP32-CAM inference.</div><div class="project-tags">CNN · TensorFlow Lite · INT8 quantization · 96×96 input · ESP32-CAM</div></div>
+          <div class="toggle" aria-hidden="true">+</div>
+        </div>
+        <div class="project-body">
+          <div class="case-grid">
+            <div>
+              <div class="case-section"><h4>Problem</h4><p>Person detection had to run on resource-constrained hardware without depending on cloud inference or a workstation in the loop.</p></div>
+              <div class="case-section"><h4>Technical approach</h4><ul><li>Designed and trained a CNN for person detection on 96×96 imagery.</li><li>Converted the model to TensorFlow Lite and quantized the inference path to INT8.</li><li>Stress-tested low-light conditions, sensor noise, and lens blur before deployment.</li><li>Deployed inference directly on an ESP32-CAM for an end-to-end edge pipeline.</li></ul></div>
+              <div class="case-section"><h4>Engineering lesson</h4><p>Embedded perception is not simply a smaller version of desktop perception. The model, input resolution, numerical precision, memory budget, sensing quality, and runtime all have to be designed together.</p></div>
+              <div class="result-box"><strong>Result:</strong> an end-to-end TinyML pipeline from training and quantization to real-time on-device inference.</div>
+            </div>
+            <aside class="project-side"><div class="side-block"><div class="k">Research signal</div><div class="v">Edge perception and the trade-off between model complexity, robustness, and embedded compute.</div></div><div class="side-block"><div class="k">Deployment</div><div class="v">ESP32-CAM · TensorFlow Lite · INT8</div></div><div class="side-block"><div class="k">Core fit</div><div class="v">Perception · embedded AI · resource-constrained robotics</div></div></aside>
+          </div>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="project-summary" tabindex="0" role="button" aria-expanded="false">
+          <div class="project-number">07</div>
+          <div><h3>UAV Frame &amp; Enclosure Design</h3><div class="subtitle">A fully constrained mechanical design workflow covering interference checks, tolerance stack-up, and engineering drawings.</div><div class="project-tags">SolidWorks · GD&amp;T · ASME Y14.5 · ISO 2768 · tolerance analysis</div></div>
+          <div class="toggle" aria-hidden="true">+</div>
+        </div>
+        <div class="project-body">
+          <div class="case-grid">
+            <div>
+              <div class="case-section"><h4>Technical scope</h4><ul><li>Built a fully constrained UAV frame and enclosure assembly in SolidWorks.</li><li>Checked component interference and mechanical interfaces before release.</li><li>Performed tolerance stack-up reasoning on critical interfaces.</li><li>Prepared dimensioned drawings using GD&amp;T principles and ASME Y14.5 / ISO 2768 conventions.</li></ul></div>
+              <div class="case-section"><h4>Why it matters</h4><p>This work demonstrates the mechanical side of the same systems mindset used elsewhere in the portfolio: the robot must remain physically buildable, serviceable, and predictable after leaving the screen.</p></div>
+            </div>
+            <aside class="project-side"><div class="side-block"><div class="k">Core fit</div><div class="v">Mechanical design · CAD · tolerancing · manufacturing communication</div></div></aside>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="section-heading">
+      <div class="num">04 / SKILLS</div>
+      <div><h2>Technical skills,<br>with the engineering context.</h2><p>Rather than listing software as isolated keywords, each capability is tied to the kind of problem it is used to solve and to evidence elsewhere in the portfolio.</p></div>
+    </div>
+
+    <div class="skills-grid">
+      <article class="skill-group">
+        <div><h3>Robotics &amp; navigation</h3><div class="summary">The mobile-robot software layer.</div></div>
+        <ul class="skill-list">
+          <li class="skill-item"><div class="skill-name">ROS2</div><div class="skill-detail">Robotic middleware and system integration for sensor, perception, planning, and control components.<div class="skill-evidence">Evidence: AMR navigation and sensor-integration project.</div></div></li>
+          <li class="skill-item"><div class="skill-name">Nav2 / navigation</div><div class="skill-detail">Navigation-stack integration with mapping, planning, obstacle-aware behavior, and the physical robot platform.<div class="skill-evidence">Evidence: indoor AMR platform and mobile UV-C robot.</div></div></li>
+          <li class="skill-item"><div class="skill-name">SLAM</div><div class="skill-detail">Mapping and robot-environment awareness as part of a mobile autonomy pipeline rather than as an isolated algorithm.<div class="skill-evidence">Evidence: ROS2 mobile-robot integration work.</div></div></li>
+          <li class="skill-item"><div class="skill-name">Sensor fusion</div><div class="skill-detail">Combining complementary sensing streams and preserving consistent frame/geometry relationships between sensors and the robot.<div class="skill-evidence">Evidence: LiDAR + RGB-D integration.</div></div></li>
+          <li class="skill-item"><div class="skill-name">Dynamic avoidance</div><div class="skill-detail">Navigation behavior that considers changing obstacles instead of relying only on a static environmental representation.<div class="skill-evidence">Evidence: dynamic obstacle handling in the AMR platform.</div></div></li>
+          <li class="skill-item"><div class="skill-name">Embedded deployment</div><div class="skill-detail">Thinking about compute, sensing, and real-time behavior on edge hardware such as Jetson-class platforms rather than assuming unlimited desktop resources.<div class="skill-evidence">Evidence: embedded mobile-robot research direction and TinyML work.</div></div></li>
+        </ul>
+      </article>
+
+      <article class="skill-group">
+        <div><h3>Perception &amp; embedded AI</h3><div class="summary">Sensing and inference under hardware constraints.</div></div>
+        <ul class="skill-list">
+          <li class="skill-item"><div class="skill-name">LiDAR / RGB-D</div><div class="skill-detail">Physical integration of depth sensing with the robot's frame structure and downstream navigation pipeline.<div class="skill-evidence">Evidence: AMR platform.</div></div></li>
+          <li class="skill-item"><div class="skill-name">OpenCV</div><div class="skill-detail">Image-based processing and visual estimation, including orientation estimation in a closed-loop control system.<div class="skill-evidence">Evidence: embedded stability controller.</div></div></li>
+          <li class="skill-item"><div class="skill-name">TinyML / TFLite</div><div class="skill-detail">Model preparation for low-resource on-device inference, including INT8 quantization and deployment constraints.<div class="skill-evidence">Evidence: Visual Wake Words project on ESP32-CAM.</div></div></li>
+          <li class="skill-item"><div class="skill-name">Robustness testing</div><div class="skill-detail">Testing perception behavior against low light, sensor noise, and lens blur before committing to hardware deployment.<div class="skill-evidence">Evidence: TinyML deployment workflow.</div></div></li>
+        </ul>
+      </article>
+
+      <article class="skill-group">
+        <div><h3>Control &amp; kinematics</h3><div class="summary">From mathematical formulation to physical motion.</div></div>
+        <ul class="skill-list">
+          <li class="skill-item"><div class="skill-name">Inverse kinematics</div><div class="skill-detail">Closed-form geometric IK for converting end-effector targets into joint commands on a physical manipulator.<div class="skill-evidence">Evidence: 3-DOF manipulator control system.</div></div></li>
+          <li class="skill-item"><div class="skill-name">Trajectory tracking</div><div class="skill-detail">Continuous tracking of spatial trajectories with encoder feedback rather than single-point positioning only.<div class="skill-evidence">Evidence: circular and triangular path execution.</div></div></li>
+          <li class="skill-item"><div class="skill-name">PID control</div><div class="skill-detail">Feedback control for regulating physical motion and rejecting disturbance in motor-driven systems.<div class="skill-evidence">Evidence: BLDC stability controller.</div></div></li>
+          <li class="skill-item"><div class="skill-name">Feedback sensing</div><div class="skill-detail">Encoder position, RPM, current, and vision used as measurements that close the practical control loop.<div class="skill-evidence">Evidence: manipulator and stability-control projects.</div></div></li>
+          <li class="skill-item"><div class="skill-name">Real-time execution</div><div class="skill-detail">Timer-driven and interrupt-aware firmware structure where timing is part of the controller, not an implementation detail.<div class="skill-evidence">Evidence: TM4C123GH6PM stability controller.</div></div></li>
+        </ul>
+      </article>
+
+      <article class="skill-group">
+        <div><h3>Embedded systems</h3><div class="summary">Low-level implementation of robotic controllers.</div></div>
+        <ul class="skill-list">
+          <li class="skill-item"><div class="skill-name">Embedded C/C++</div><div class="skill-detail">Bare-metal programming, interrupt handling, timers, PWM generation, sensor acquisition, and control logic.<div class="skill-evidence">Evidence: TIVA-based stability-control system.</div></div></li>
+          <li class="skill-item"><div class="skill-name">TM4C123GH6PM</div><div class="skill-detail">Microcontroller platform used for both custom-board design and real-time control implementation.<div class="skill-evidence">Evidence: custom PCB + firmware projects.</div></div></li>
+          <li class="skill-item"><div class="skill-name">PWM / motor drive</div><div class="skill-detail">Timer-driven actuation for BLDC motor control with feedback from RPM/current measurements.<div class="skill-evidence">Evidence: dual-axis stability controller.</div></div></li>
+          <li class="skill-item"><div class="skill-name">LabVIEW / NI myRIO</div><div class="skill-detail">Real-time control implementation for the 3-DOF manipulator and trajectory tracking workflow.<div class="skill-evidence">Evidence: closed-loop IK project.</div></div></li>
+        </ul>
+      </article>
+
+      <article class="skill-group">
+        <div><h3>PCB &amp; hardware design</h3><div class="summary">Designing the electronics underneath a robotic system.</div></div>
+        <ul class="skill-list">
+          <li class="skill-item"><div class="skill-name">KiCad</div><div class="skill-detail">Schematic capture, custom symbols, footprints, multilayer layout, 3D inspection, and manufacturing release.<div class="skill-evidence">Evidence: Tiva development-board reconstruction.</div></div></li>
+          <li class="skill-item"><div class="skill-name">IPC-2221</div><div class="skill-detail">Used as a reference for layout decisions involving trace width, spacing, and electrical constraints.<div class="skill-evidence">Evidence: manufacturing-oriented PCB workflow.</div></div></li>
+          <li class="skill-item"><div class="skill-name">IPC-7351</div><div class="skill-detail">Footprint-development and land-pattern discipline for PCB components.<div class="skill-evidence">Evidence: custom footprint work.</div></div></li>
+          <li class="skill-item"><div class="skill-name">DRC / ERC</div><div class="skill-detail">Formal schematic and layout verification rather than visual inspection alone.<div class="skill-evidence">Evidence: complete PCB release workflow.</div></div></li>
+          <li class="skill-item"><div class="skill-name">Manufacturing release</div><div class="skill-detail">Gerbers, drill files, assembly drawings, and BOM preparation for fabrication review.<div class="skill-evidence">Evidence: Tiva board release package.</div></div></li>
+        </ul>
+      </article>
+
+      <article class="skill-group">
+        <div><h3>Mechanical design &amp; simulation</h3><div class="summary">Physical structure, validation, and communication.</div></div>
+        <ul class="skill-list">
+          <li class="skill-item"><div class="skill-name">SolidWorks</div><div class="skill-detail">Assemblies, constrained geometry, sensor mounts, robotic structures, interference checking, and manufacturing drawings.<div class="skill-evidence">Evidence: AMR, UV-C robot, UAV frame.</div></div></li>
+          <li class="skill-item"><div class="skill-name">Static FEA</div><div class="skill-detail">Stress, deflection, factor-of-safety, and mesh-convergence analysis used to validate load-bearing structures.<div class="skill-evidence">Evidence: UV-C robot mast and deployable arms.</div></div></li>
+          <li class="skill-item"><div class="skill-name">Optical simulation</div><div class="skill-detail">Cross-checking irradiance and dose behavior across MATLAB, DIALux Evo, and COMSOL for the UV-C system.<div class="skill-evidence">Evidence: UV-C robot analysis.</div></div></li>
+          <li class="skill-item"><div class="skill-name">GD&amp;T / tolerancing</div><div class="skill-detail">Engineering drawing, tolerance stack-up, and dimensional communication for physical parts and assemblies.<div class="skill-evidence">Evidence: UAV frame and enclosure design.</div></div></li>
+        </ul>
+      </article>
+
+      <article class="skill-group">
+        <div><h3>Programming &amp; engineering tools</h3><div class="summary">Languages and tools used across the system stack.</div></div>
+        <ul class="skill-list">
+          <li class="skill-item"><div class="skill-name">Programming</div><div class="skill-detail">C/C++ for embedded and control work; Python and MATLAB for robotics, analysis, and experimentation.</div></li>
+          <li class="skill-item"><div class="skill-name">Simulation</div><div class="skill-detail">ROS2-oriented simulation and visualization workflows, together with engineering simulation for structure and optical behavior.</div></li>
+          <li class="skill-item"><div class="skill-name">Versioned work</div><div class="skill-detail">Git/GitHub-based project organization and technical documentation for code and engineering artifacts.</div></li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <div class="section-heading">
+      <div class="num">05 / ABOUT</div>
+      <div><h2>Academic background<br>and direction.</h2><p>A mechatronics education provides the common base beneath both research stories: mechanics, electronics, control, computation, and system integration.</p></div>
+    </div>
+    <div class="two-col">
+      <div class="text-block">
+        <p>I am pursuing a B.Sc. in Mechatronics and Control Engineering at the University of Engineering and Technology (UET), Lahore, from 2023 to 2027.</p>
+        <p>My project choices have intentionally moved toward robotics systems in which multiple engineering layers interact. That includes mobile robot perception and navigation, manipulator control, embedded motor control, PCB design, and mechanically validated autonomous systems.</p>
+        <p>I am now looking for research environments where I can deepen this foundation through rigorous work in robotics, autonomous systems, control, perception, and embodied intelligence.</p>
+      </div>
+      <div class="meta-table">
+        <div class="meta-row"><div class="k">Degree</div><div class="v">B.Sc. Mechatronics &amp; Control Engineering</div></div>
+        <div class="meta-row"><div class="k">University</div><div class="v">University of Engineering and Technology (UET), Lahore</div></div>
+        <div class="meta-row"><div class="k">Period</div><div class="v">2023–2027</div></div>
+        <div class="meta-row"><div class="k">Labs</div><div class="v">Human Centered Robotics Lab, NCRA · Embedded Systems Lab, UET</div></div>
+        <div class="meta-row"><div class="k">Leadership</div><div class="v">Deputy Director, HR · Mechatronics Club, UET</div></div>
+        <div class="meta-row"><div class="k">Presentation</div><div class="v">Invited presenter · INDUS RAS Expo</div></div>
+        <div class="meta-row"><div class="k">Additional CAD</div><div class="v">UAV frame and enclosure · ASME Y14.5 · ISO 2768</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <div class="section-heading">
+      <div class="num">06 / CONTACT</div>
+      <div><h2>Research collaboration,<br>internships, and graduate work.</h2></div>
+    </div>
+    <div class="contact-box">
+      <div><h2>Let's discuss the problem.</h2><p>I am particularly interested in research involving mobile robotics, perception and navigation, real-time control, kinematics, embedded systems, and mechatronic robot design.</p></div>
+      <div class="contact-links"><a class="button fill" href="mailto:enghusnainx77@gmail.com">enghusnainx77@gmail.com</a><a class="button" href="https://github.com/Husnain-eng" target="_blank" rel="noopener">GitHub ↗</a><a class="button" href="https://linkedin.com/in/muhammad-husnain" target="_blank" rel="noopener">LinkedIn ↗</a></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <span>MUHAMMAD HUSNAIN · ROBOTICS RESEARCH · 2026</span>
+    <span><a href="#top">Back to top ↑</a></span>
+  </div>
+</footer>
+
+<script>
+function toggleNav(){
+  const header=document.getElementById('siteHeader');
+  const button=header.querySelector('.nav-toggle');
+  const open=header.classList.toggle('open');
+  button.setAttribute('aria-expanded',open?'true':'false');
+}
+
+document.querySelectorAll('.project-summary').forEach(summary=>{
+  const project=summary.parentElement;
+  const toggle=()=>{
+    const open=project.classList.toggle('open');
+    summary.setAttribute('aria-expanded',open?'true':'false');
+  };
+  summary.addEventListener('click',toggle);
+  summary.addEventListener('keydown',e=>{
+    if(e.key==='Enter'||e.key===' '){e.preventDefault();toggle();}
+  });
+});
+
+document.querySelectorAll('.nav a').forEach(link=>link.addEventListener('click',()=>{
+  const header=document.getElementById('siteHeader');
+  header.classList.remove('open');
+  header.querySelector('.nav-toggle').setAttribute('aria-expanded','false');
+}));
+</script>
+</body>
+</html>
